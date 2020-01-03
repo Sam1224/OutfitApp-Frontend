@@ -5,6 +5,7 @@ import FrontIndex from '@/components/front/index'
 import BackIndex from '@/components/back/index'
 import BackLogin from '@/components/back/login/login'
 import BackHome from '@/components/back/home/home'
+import BackUsersIndex from '@/components/back/users/index/index'
 import BackUsersList from '@/components/back/users/userslist/userslist'
 import BackAdminsList from '@/components/back/admins/adminslist/adminslist'
 import GithubRedirect from '@/components/back/login/githubredirect'
@@ -73,11 +74,22 @@ const router = new Router({
         },
         {
           path: 'users',
-          name: 'adminuserslist',
-          component: BackUsersList,
+          component: BackUsersIndex,
           meta: {
             requireAuth: true
-          }
+          },
+          children: [
+            {
+              path: '',
+              name: 'usersdefault',
+              component: BackUsersList
+            },
+            {
+              path: 'users',
+              name: 'userslist',
+              component: BackUsersList
+            }
+          ]
         },
         {
           path: 'admins',
