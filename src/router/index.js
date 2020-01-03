@@ -7,6 +7,11 @@ import BackLogin from '@/components/back/login/login'
 import BackHome from '@/components/back/home/home'
 import BackUsersList from '@/components/back/users/userslist/userslist'
 import BackAdminsList from '@/components/back/admins/adminslist/adminslist'
+import GithubRedirect from '@/components/back/login/githubredirect'
+import GitlabRedirect from '@/components/back/login/gitlabredirect'
+import GiteeRedirect from '@/components/back/login/giteeredirect'
+import BitbucketRedirect from '@/components/back/login/bitbucketredirect'
+import WeiboRedirect from '@/components/back/login/weiboredirect'
 
 Vue.use(Router)
 
@@ -23,6 +28,31 @@ const router = new Router({
       path: '/admin',
       component: BackIndex,
       children: [
+        {
+          path: 'githubredirect',
+          name: 'githubredirect',
+          component: GithubRedirect
+        },
+        {
+          path: 'gitlabredirect',
+          name: 'gitlabredirect',
+          component: GitlabRedirect
+        },
+        {
+          path: 'giteeredirect',
+          name: 'giteeredirect',
+          component: GiteeRedirect
+        },
+        {
+          path: 'bitbucketredirect',
+          name: 'bitbucketredirect',
+          component: BitbucketRedirect
+        },
+        {
+          path: 'weiboredirect',
+          name: 'weiboredirect',
+          component: WeiboRedirect
+        },
         {
           path: '',
           name: 'admindefault',

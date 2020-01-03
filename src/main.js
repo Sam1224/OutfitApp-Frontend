@@ -11,6 +11,14 @@ import 'element-ui/lib/theme-chalk/index.css'
 import BootstrapVue from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
+import GAuth from 'vue-google-oauth2'
+
+const gauthOption = {
+  clientId: '536131817738-l77igjnrphl3jkp4q3he7jrml41s1aik.apps.googleusercontent.com',
+  scope: 'profile email',
+  prompt: 'select_account'
+}
+Vue.use(GAuth, gauthOption)
 
 Vue.config.productionTip = false
 
