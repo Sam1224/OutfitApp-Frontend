@@ -44,10 +44,11 @@
   import Vue from 'vue'
   import VueTables from 'vue-tables-2'
   import { mapGetters } from 'vuex'
+  import statusCode from '@/common/js/status'
 
   Vue.use(VueTables.ClientTable, {compileTemplates: true, filterByColumn: true})
 
-  const ERR_OK = 0
+  const ERR_OK = statusCode.ERR_OK
 
   export default {
     data() {

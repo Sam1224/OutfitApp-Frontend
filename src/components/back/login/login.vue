@@ -40,21 +40,12 @@
 <script type="text/ecmascript-6">
   import Service from '@/services/services'
   import { mapMutations, mapGetters } from 'vuex'
+  import statusCode from '@/common/js/status'
 
-  const ERR_OK = 0
+  const ERR_OK = statusCode.ERR_OK
   const AVATAR = 'http://static.galileo.xiaojukeji.com/static/tms/default_header.png'
   const DEFAULT = 'default'
   const GOOGLE = 'google'
-  // eslint-disable-next-line no-unused-vars
-  const GITHUB = 'github'
-  // eslint-disable-next-line no-unused-vars
-  const GITLAB = 'gitlab'
-  // eslint-disable-next-line no-unused-vars
-  const GITEE = 'gitee'
-  // eslint-disable-next-line no-unused-vars
-  const BITBUCKET = 'bitbucket'
-  // eslint-disable-next-line no-unused-vars
-  const WEIBO = 'weibo'
 
   export default {
     name: 'Login',

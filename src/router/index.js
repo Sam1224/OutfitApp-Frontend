@@ -7,6 +7,7 @@ import BackLogin from '@/components/back/login/login'
 import BackHome from '@/components/back/home/home'
 import BackUsersIndex from '@/components/back/users/index/index'
 import BackUsersList from '@/components/back/users/list/list'
+import BackUsersAdd from '@/components/back/users/add/add'
 import BackAdminsList from '@/components/back/admins/adminslist/adminslist'
 import GithubRedirect from '@/components/back/login/githubredirect'
 import GitlabRedirect from '@/components/back/login/gitlabredirect'
@@ -85,9 +86,14 @@ const router = new Router({
               component: BackUsersList
             },
             {
-              path: 'users',
-              name: 'list',
+              path: 'list',
+              name: 'userslist',
               component: BackUsersList
+            },
+            {
+              path: 'add',
+              name: 'usersadd',
+              component: BackUsersAdd
             }
           ]
         },

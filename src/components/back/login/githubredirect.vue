@@ -5,8 +5,9 @@
 <script type="text/ecmascript-6">
   import { mapMutations } from 'vuex'
   import axios from 'axios'
+  import statusCode from '@/common/js/status'
 
-  const ERR_OK = 0
+  const ERR_OK = statusCode.ERR_OK
 
   export default {
     data() {

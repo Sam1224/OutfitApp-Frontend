@@ -9,6 +9,13 @@ export default {
   getUsers() {
     return Api().get('/user')
   },
+  addUser(user) {
+    return Api().post('/user', user, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+  },
   deleteUser(id, user) {
     return Api().delete(`/user/${id}`, {
       data: user,
