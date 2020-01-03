@@ -3,6 +3,10 @@ import Router from 'vue-router'
 import store from '@/store/store'
 import FrontIndex from '@/components/front/index'
 import BackIndex from '@/components/back/index'
+import BackLogin from '@/components/back/login/login'
+import BackHome from '@/components/back/home/home'
+import BackUsersList from '@/components/back/users/userslist/userslist'
+import BackAdminsList from '@/components/back/admins/adminslist/adminslist'
 
 Vue.use(Router)
 
@@ -17,8 +21,43 @@ const router = new Router({
     },
     {
       path: '/admin',
-      name: 'BackIndex',
-      component: BackIndex
+      component: BackIndex,
+      children: [
+        {
+          path: '',
+          name: 'admindefault',
+          component: BackLogin
+        },
+        {
+          path: 'login',
+          name: 'adminlogin',
+          component: BackLogin
+        },
+        {
+          path: 'home',
+          name: 'adminhome',
+          component: BackHome,
+          meta: {
+            requireAuth: true
+          }
+        },
+        {
+          path: 'users',
+          name: 'adminuserslist',
+          component: BackUsersList,
+          meta: {
+            requireAuth: true
+          }
+        },
+        {
+          path: 'admins',
+          name: 'adminadminslist',
+          component: BackAdminsList,
+          meta: {
+            requireAuth: true
+          }
+        }
+      ]
     }
   ]
 })
