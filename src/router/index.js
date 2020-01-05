@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import store from '@/store/store'
 import FrontIndex from '@/components/front/index/index'
 import FrontLogin from '@/components/front/login/login'
+import FrontRegister from '@/components/front/register/register'
 import BackIndex from '@/components/back/index'
 import BackLogin from '@/components/back/login/login'
 import BackHome from '@/components/back/home/home'
@@ -35,6 +36,11 @@ const router = new Router({
           path: 'login',
           name: 'userlogin',
           component: FrontLogin
+        },
+        {
+          path: 'register',
+          name: 'userregister',
+          component: FrontRegister
         }
       ]
     },
