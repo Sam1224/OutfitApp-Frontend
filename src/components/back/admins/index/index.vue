@@ -1,6 +1,6 @@
 <template>
-  <div class="adminslist">
-    admins list
+  <div class="admins">
+    <router-view></router-view>
   </div>
 </template>
 
