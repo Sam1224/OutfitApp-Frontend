@@ -12,6 +12,7 @@ import BackUsersEdit from '@/components/back/users/edit/edit'
 import BackAdminsIndex from '@/components/back/admins/index/index'
 import BackAdminsList from '@/components/back/admins/list/list'
 import BackAdminsAdd from '@/components/back/admins/add/add'
+import BackAdminsEdit from '@/components/back/admins/edit/edit'
 import GithubRedirect from '@/components/back/login/githubredirect'
 import GitlabRedirect from '@/components/back/login/gitlabredirect'
 import GiteeRedirect from '@/components/back/login/giteeredirect'
@@ -126,6 +127,11 @@ const router = new Router({
               path: 'add',
               name: 'adminsadd',
               component: BackAdminsAdd
+            },
+            {
+              path: 'edit',
+              name: 'adminsedit',
+              component: BackAdminsEdit
             }
           ]
         }

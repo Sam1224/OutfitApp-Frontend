@@ -42,8 +42,23 @@ export default {
       }
     })
   },
+  getOneAdminById(id, token) {
+    return Api().get(`/admin/${id}`, {
+      headers: {
+        token: token,
+        'Content-Type': 'application/json'
+      }
+    })
+  },
   addAdmin(admin) {
     return Api().post('/admin', admin, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+  },
+  updateAdmin(id, admin) {
+    return Api().put(`/admin/${id}`, admin, {
       headers: {
         'Content-Type': 'application/json'
       }
