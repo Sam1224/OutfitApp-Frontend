@@ -42,6 +42,13 @@ export default {
       }
     })
   },
+  addAdmin(admin) {
+    return Api().post('/admin', admin, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+  },
   deleteAdmin(id, admin) {
     return Api().delete(`/admin/${id}`, {
       data: admin,
