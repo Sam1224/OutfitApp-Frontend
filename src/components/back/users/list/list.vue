@@ -25,6 +25,9 @@
                 <span>{{props.row.name}}</span>
               </el-card>
             </el-form-item>
+            <el-form-item label="Avatar" prop="avatar">
+              <el-image style="width:128px;height:128px;" :src="props.row.avatar" fit="fill"></el-image>
+            </el-form-item>
           </el-form>
         </div>
         <a slot="edit" slot-scope="props" class="el-icon-setting" @click="editUser(props.row._id)"></a>
@@ -90,6 +93,14 @@
           .then((response) => {
             let res = response.data
             if (res.code === ERR_OK) {
+              res.data.forEach((user) => {
+                let avatar = user.avatar
+                if (avatar) {
+                  user.avatar = `https://outfitapp-sam.herokuapp.com/${avatar}`
+                } else {
+                  user.avatar = 'https://outfitapp-sam.herokuapp.com/uploads/avatar_default.jpg'
+                }
+              })
               this.users = res.data
               setTimeout(() => {
                 this.loading = false

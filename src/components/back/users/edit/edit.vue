@@ -17,6 +17,21 @@
       <el-form-item label="Name" prop="name">
         <el-input class="name" v-model="userForm.name" auto-complete="off"></el-input>
       </el-form-item>
+      <el-form-item label="Avatar" prop="avatar">
+        <el-upload ref="avatarUploader" class="upload-wrapper" drag action="https://outfitapp-sam.herokuapp.com/upload" show-file-list
+                   accept="image/png, image/jpeg"
+                   :on-success="handleAvatarSuccess"
+                   :on-remove="handleAvatarRemove"
+                   :disabled="avatarStatus"
+                   :file-list="avatarList"
+                   list-type="picture"
+                   :limit="Number(1)"
+        >
+          <i class="el-icon-upload"></i>
+          <div class="el-upload__text">Drag picture here, or <em>click to upload</em></div>
+          <div class="el-upload__tip" slot="tip">Only .jpg and .png files accepted</div>
+        </el-upload>
+      </el-form-item>
       <el-form-item>
         <el-button class="edit-btn" type="primary" @click="editUser">Edit User</el-button>
         <el-button class="cancel-btn" @click="cancel">Cancel</el-button>
@@ -43,16 +58,16 @@
         loading: true,
         user: {},
         isPasswordModified: false,
+        avatarStatus: false,
+        avatarList: [],
+        avatarFormData: '',
         userForm: {
           username: '',
           password: '',
           phone: '',
-          address: [{
-            text: '',
-            status: 0
-          }],
-          pay: [],
-          favorite: []
+          email: '',
+          name: '',
+          avatar: ''
         },
         rules: {
           username: [{
@@ -102,11 +117,32 @@
             if (res.code === ERR_OK) {
               this.userForm = res.data[0]
               this.user = res.data[0]
+              let avatar = res.data[0].avatar
+              if (avatar) {
+                let pendingAvatar = {}
+                let url = `https://outfitapp-sam.herokuapp.com/${avatar}`
+                pendingAvatar.name = url.split('/')[-1]
+                pendingAvatar.url = url
+                this.avatarList.push(pendingAvatar)
+              }
               setTimeout(() => {
                 this.loading = false
               }, 1000)
             }
           })
+      },
+      handleAvatarSuccess(response, file, fileList) {
+        if (response.code === ERR_OK) {
+          this.userForm.avatar = response.filepath
+          this.avatarList = []
+          this.avatarList.push({
+            name: response.filepath.split('/')[-1],
+            url: `https://outfitapp-sam.herokuapp.com/${response.filepath}`
+          })
+        }
+      },
+      handleAvatarRemove(file, fileList) {
+        this.userForm.avatar = null
       },
       editUser() {
         let user = {
@@ -115,6 +151,7 @@
           phone: this.userForm.phone,
           email: this.userForm.email,
           name: this.userForm.name,
+          avatar: this.userForm.avatar,
           token: this.token
         }
 
