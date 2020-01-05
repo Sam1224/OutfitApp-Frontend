@@ -1,5 +1,7 @@
 <template>
-  <div class="index"></div>
+  <div class="index">
+    <router-view></router-view>
+  </div>
 </template>
 
 <script type="text/ecmascript-6">
