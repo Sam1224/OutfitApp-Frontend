@@ -10,6 +10,7 @@ import BackUsersList from '@/components/back/users/list/list'
 import BackUsersAdd from '@/components/back/users/add/add'
 import BackUsersEdit from '@/components/back/users/edit/edit'
 import BackAdminsIndex from '@/components/back/admins/index/index'
+import BackAdminsList from '@/components/back/admins/list/list'
 import GithubRedirect from '@/components/back/login/githubredirect'
 import GitlabRedirect from '@/components/back/login/gitlabredirect'
 import GiteeRedirect from '@/components/back/login/giteeredirect'
@@ -105,11 +106,22 @@ const router = new Router({
         },
         {
           path: 'admins',
-          name: 'adminadminslist',
           component: BackAdminsIndex,
           meta: {
             requireAuth: true
-          }
+          },
+          children: [
+            {
+              path: '',
+              name: 'adminsdefault',
+              component: BackAdminsList
+            },
+            {
+              path: 'list',
+              name: 'adminslist',
+              component: BackAdminsList
+            }
+          ]
         }
       ]
     }

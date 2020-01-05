@@ -34,6 +34,22 @@ export default {
       }
     })
   },
+  getAdmins(token) {
+    return Api().get('/admin', {
+      headers: {
+        token: token,
+        'Content-Type': 'application/json'
+      }
+    })
+  },
+  deleteAdmin(id, admin) {
+    return Api().delete(`/admin/${id}`, {
+      data: admin,
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+  },
   backLogin(admin) {
     return Api().post('/admin/login', admin, {
       headers: {
