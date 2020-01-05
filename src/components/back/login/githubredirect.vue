@@ -52,6 +52,7 @@
               duration: 1000
             })
             this.login(res.token)
+            res.account.end = statusCode.BACKEND
             this.setAccount(res.account)
             setTimeout(() => {
               this.$router.push('/admin/home')

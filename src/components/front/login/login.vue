@@ -82,7 +82,8 @@
                     username: user.username,
                     name: user.username,
                     avatar: AVATAR,
-                    type: DEFAULT
+                    type: DEFAULT,
+                    end: statusCode.FRONTEND
                   }
                   this.login(res.token)
                   this.setAccount(account)

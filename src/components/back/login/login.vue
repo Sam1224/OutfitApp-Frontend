@@ -170,7 +170,8 @@
                     username: admin.username,
                     name: admin.username,
                     avatar: AVATAR,
-                    type: DEFAULT
+                    type: DEFAULT,
+                    end: statusCode.BACKEND
                   }
                   this.login(res.token)
                   this.setAccount(account)
@@ -200,7 +201,8 @@
               username: profile.U3,
               name: profile.ig,
               avatar: profile.Paa,
-              type: GOOGLE
+              type: GOOGLE,
+              end: statusCode.BACKEND
             }
             Service.getAdminToken(account.username)
               .then((response) => {

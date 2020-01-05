@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import statusCode from '@/common/js/status'
 import store from '@/store/store'
 import FrontIndex from '@/components/front/index/index'
 import FrontLogin from '@/components/front/login/login'
@@ -169,17 +170,25 @@ router.beforeEach((to, from, next) => {
     if (store.state.token) {
       next()
     } else {
-      if (localStorage.token && localStorage.getItem('account')) {
-        store.state.token = localStorage.token
-        store.state.account = JSON.parse(localStorage.getItem('account'))
-        next()
-      } else {
-        let path = to.path
-        if (path.indexOf('admin') >= 0) {
+      let path = to.path
+      if (path.indexOf('admin') >= 0) {
+        // frontend
+        if (localStorage.token && localStorage.getItem('account') && localStorage.getItem('account').end === statusCode.FRONTEND) {
+          store.state.token = localStorage.token
+          store.state.account = JSON.parse(localStorage.getItem('account'))
+          next()
+        } else {
           next({
             path: '/admin/login',
             query: {redirect: to.fullPath}
           })
+        }
+      } else {
+        // backend
+        if (localStorage.token && localStorage.getItem('account') && localStorage.getItem('account').end === statusCode.BACKEND) {
+          store.state.token = localStorage.token
+          store.state.account = JSON.parse(localStorage.getItem('account'))
+          next()
         } else {
           next({
             path: '/login',

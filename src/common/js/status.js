@@ -23,7 +23,9 @@ const statusCode = {
   GITLAB: 'gitlab',
   GITEE: 'gitee',
   BITBUCKET: 'bitbucket',
-  WEIBO: 'weibo'
+  WEIBO: 'weibo',
+  FRONTEND: 0,
+  BACKEND: 1
 }
 
 module.exports = statusCode
