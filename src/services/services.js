@@ -72,6 +72,13 @@ export default {
       }
     })
   },
+  frontLogin(user) {
+    return Api().post('/login', user, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+  },
   backLogin(admin) {
     return Api().post('/admin/login', admin, {
       headers: {
