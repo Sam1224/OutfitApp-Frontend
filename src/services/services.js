@@ -6,11 +6,21 @@
 import Api from './api'
 
 export default {
+  getOneUserById(id) {
+    return Api().get(`/user/one?type=0&query=${id}&status=0`)
+  },
   getUsers() {
     return Api().get('/user')
   },
   addUser(user) {
     return Api().post('/user', user, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+  },
+  updateUser(id, user) {
+    return Api().put(`/user/${id}`, user, {
       headers: {
         'Content-Type': 'application/json'
       }
