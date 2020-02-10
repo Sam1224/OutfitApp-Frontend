@@ -109,7 +109,7 @@
                 if (res.code === ERR_OK) {
                   this.$message({
                     showClose: true,
-                    message: 'Successfully Register',
+                    message: 'Successfully register, please activate in time',
                     type: 'success',
                     center: true,
                     duration: 1000
