@@ -6,6 +6,7 @@ import FrontIndex from '@/components/front/index/index'
 import FrontLogin from '@/components/front/login/login'
 import FrontRegister from '@/components/front/register/register'
 import FrontHome from '@/components/front/home/home'
+import FrontVirtualTryOn from '@/components/front/outfit/vton/vton'
 import BackIndex from '@/components/back/index'
 import BackLogin from '@/components/back/login/login'
 import BackHome from '@/components/back/home/home'
@@ -50,6 +51,14 @@ const router = new Router({
           component: FrontHome,
           meta: {
             requireAuth: true
+          }
+        },
+        {
+          path: 'vton',
+          name: 'virtual-try-on',
+          component: FrontVirtualTryOn,
+          meta: {
+            requireAuth: false
           }
         }
       ]

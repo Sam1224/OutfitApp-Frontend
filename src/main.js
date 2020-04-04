@@ -12,6 +12,9 @@ import BootstrapVue from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import GAuth from 'vue-google-oauth2'
+import VueLazyload from 'vue-lazyload'
+
+Vue.use(VueLazyload)
 
 const gauthOption = {
   clientId: '536131817738-l77igjnrphl3jkp4q3he7jrml41s1aik.apps.googleusercontent.com',
