@@ -64,13 +64,14 @@
 
 <script type="text/ecmascript-6">
   import axios from 'axios'
+  import awsApis from '@/services/gpu'
 
   export default {
     data () {
       return {
         title: 'Virtual Try-On DIY',
         loading: false,
-        apiUrl: 'http://54.235.4.234:5000/api_server',
+        apiUrl: awsApis.vton,
         active: 0,
         stepData: [{
           index: 0,

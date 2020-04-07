@@ -50,13 +50,14 @@
 
 <script type="text/ecmascript-6">
   import axios from 'axios'
+  import awsApis from '@/services/gpu'
 
   export default {
     data () {
       return {
         title: 'Outfit Retrieval',
         loading: false,
-        apiUrl: 'http://18.209.14.15:5012/mmfashion',
+        apiUrl: awsApis.retrieval,
         active: 0,
         stepData: [{
           index: 0,
