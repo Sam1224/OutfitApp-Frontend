@@ -3,7 +3,7 @@
     <div class="header-wrapper">
       <h1 class="text">{{title}}</h1>
     </div>
-    <div class="vton" v-loading.lock="loading" element-loading-text="Generating..." element-loading-background="rgb(255, 255, 255)">
+    <div class="vton" v-loading.fullscreen.lock="loading" element-loading-text="Generating..." element-loading-background="rgb(255, 255, 255)">
       <div class="steps-wrapper">
         <el-steps :active="active">
           <el-step v-for="(step, index) in stepData" :key="index" :title="step.title" :icon="step.icon" @click.native="changeStep(index)"></el-step>

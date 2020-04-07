@@ -1,9 +1,9 @@
 <template>
-  <div class="virtual-try-on-diy-wrapper">
+  <div class="retrieval-wrapper">
     <div class="header-wrapper">
       <h1 class="text">{{title}}</h1>
     </div>
-    <div class="vton-diy" v-loading.fullscreen.lock="loading" element-loading-text="Generating..." element-loading-background="rgb(255, 255, 255)">
+    <div class="retrieve" v-loading.fullscreen.lock="loading" element-loading-text="Retrieving..." element-loading-background="rgb(255, 255, 255)" style="z-index: 10;">
       <div class="steps-wrapper">
         <el-steps :active="active">
           <el-step v-for="(step, index) in stepData" :key="index" :title="step.title" :icon="step.icon" @click.native="changeStep(index)"></el-step>
@@ -12,12 +12,12 @@
       <div class="views-wrapper">
         <el-row v-show="active === 0" class="step">
           <div class="image-wrapper">
-            <div class="box_pose">
-              <div class="pose_panel_select" @click="uploadPose">
-                <input type="radio" class="select" value="0" id="pose_select_0">
-                <p id="pose_label">Upload pose image</p>
-                <input id="selected_file_pose_image" @change="changePose" type="file" accept="image/*">
-                <canvas id="selected_file_pose_image_canvas" width="192" height="256"></canvas>
+            <div class="box_cloth">
+              <div class="cloth_panel_select" id="cloth_panel_select" @click="uploadCloth">
+                <input type="radio" class="select" value="0" id="cloth_select_0">
+                <p id="cloth_label">Upload image</p>
+                <input id="selected_file_cloth_image" @change="changeCloth" type="file" accept="image/*">
+                <canvas id="selected_file_cloth_image_canvas" width="256" height="256"></canvas>
               </div>
             </div>
           </div>
@@ -29,26 +29,12 @@
           </div>
         </el-row>
         <el-row v-show="active === 1" class="step">
-          <div class="image-wrapper">
-            <div class="box_cloth">
-              <div class="cloth_panel_select" @click="uploadCloth">
-                <input type="radio" class="select" value="0" id="cloth_select_0">
-                <p id="cloth_label">Upload cloth image</p>
-                <input id="selected_file_cloth_image" @change="changeCloth" type="file" accept="image/*">
-                <canvas id="selected_file_cloth_image_canvas" width="192" height="256"></canvas>
-              </div>
-            </div>
-          </div>
-          <div class="button-wrapper">
-            <div class="btns">
-              <i class="el-icon-arrow-left prev" @click="prev()" v-show="active !== 0"></i>
-              <i class="el-icon-arrow-right next" @click="next()" v-show="active !== stepData.length - 1"></i>
-            </div>
-          </div>
-        </el-row>
-        <el-row v-show="active === 2" class="step">
-          <div class="box_tryon">
-            <canvas id="tryon_image_canvas" width="192" height="256"></canvas>
+          <div class="box_retrieval">
+            <canvas id="retrieved_image_1_canvas" width="256" height="256"></canvas>
+            <canvas id="retrieved_image_2_canvas" width="256" height="256"></canvas>
+            <canvas id="retrieved_image_3_canvas" width="256" height="256"></canvas>
+            <canvas id="retrieved_image_4_canvas" width="256" height="256"></canvas>
+            <canvas id="retrieved_image_5_canvas" width="256" height="256"></canvas>
           </div>
           <div class="button-wrapper">
             <div class="btns">
@@ -68,9 +54,9 @@
   export default {
     data () {
       return {
-        title: 'Virtual Try-On DIY',
+        title: 'Outfit Retrieval',
         loading: false,
-        apiUrl: 'http://54.235.4.234:5000/api_server',
+        apiUrl: 'http://18.209.14.15:5012/mmfashion',
         active: 0,
         stepData: [{
           index: 0,
@@ -79,13 +65,8 @@
         }, {
           index: 1,
           title: 'Step 2',
-          icon: 'el-icon-upload'
-        }, {
-          index: 2,
-          title: 'Step 3',
           icon: 'el-icon-picture'
         }],
-        poseImg: null,
         clothImg: null
       }
     },
@@ -104,9 +85,9 @@
         if (curIndex < this.stepData.length - 1) {
           this.active = curIndex + 1
         }
-        if (curIndex + 1 === 2) {
+        if (curIndex + 1 === 1) {
           this.loading = true
-          this.generateTryOnImage(this.apiUrl)
+          this.retrieveOutfits(this.apiUrl)
         }
       },
       getLabel(mode, index) {
@@ -137,55 +118,54 @@
         // To Base64
         return canvas.toDataURL(mimeType)
       },
-      uploadPose() {
-        document.getElementById('selected_file_pose_image').click()
-      },
       uploadCloth() {
         document.getElementById('selected_file_cloth_image').click()
-      },
-      changePose(e) {
-        let it = this
-        var reader = new FileReader()
-        if (e.target.files.length > 0) {
-          reader.readAsDataURL(e.target.files[0])
-          reader.onload = function (e) {
-            let imgSrc = e.target.result
-            it.drawToCanvas(imgSrc, 'selected_file_pose_image_canvas')
-          }
-          this.poseImg = document.getElementById('selected_file_pose_image_canvas').toDataURL('image/png').replace(/^.*,/, '')
-          document.getElementById('pose_label').style.display = 'none'
-        }
       },
       changeCloth(e) {
         let it = this
         var reader = new FileReader()
         if (e.target.files.length > 0) {
           reader.readAsDataURL(e.target.files[0])
+          let width
+          let height
           reader.onload = function (e) {
             let imgSrc = e.target.result
+            var image = new Image()
+            image.src = imgSrc
+            image.onload = function() {
+              width = this.width
+              height = this.height
+              width = 8 + width
+              height = 8 + height
+              document.getElementById('cloth_panel_select').style.width = `${width}px`
+              document.getElementById('cloth_panel_select').style.height = `${height}px`
+            }
             it.drawToCanvas(imgSrc, 'selected_file_cloth_image_canvas')
           }
           this.clothImg = document.getElementById('selected_file_cloth_image_canvas').toDataURL('image/png').replace(/^.*,/, '')
           document.getElementById('cloth_label').style.display = 'none'
         }
       },
-      generateTryOnImage(apiUrl) {
-        if (this.poseImg === null || this.clothImg === null) {
+      retrieveOutfits(apiUrl) {
+        if (this.clothImg === null) {
           setTimeout(() => {
             this.loading = false
           }, 1000)
           return
         }
-        var poseImgBase64 = this.poseImg
         var clothImgBase64 = this.clothImg
         try {
           axios.post(apiUrl, {
-            'pose_img_base64': poseImgBase64,
-            'cloth_img_base64': clothImgBase64
+            'img_base64': clothImgBase64
           })
             .then((res) => {
-              let dataURL = `data:image/png;base64,${res.data.tryon_img_base64}`
-              this.drawToCanvas(dataURL, 'tryon_image_canvas')
+              let retrievedImgs = res.data.retrieved_imgs
+              for (let i = 0; i < retrievedImgs.length; i++) {
+                let canvasId = `retrieved_image_${i + 1}_canvas`
+                let dataURL = `data:image/png;base64,${retrievedImgs[i]}`
+                this.drawToCanvas(dataURL, canvasId)
+              }
+
               setTimeout(() => {
                 this.loading = false
               }, 1000)
@@ -221,7 +201,7 @@
       line-height: 20px
       font-size: 24px
       margin: 24px
-  .vton-diy
+  .retrieve
     position: relative
     .steps-wrapper
       position: relative
@@ -241,13 +221,13 @@
             display: none
           .box_pose, .box_cloth
             position: relative
-            .pose_panel_select, .cloth_panel_select
+            .cloth_panel_select
               position: relative
-              width: 200px
+              width: 264px
               height: 264px
               line-height: 264px
               border: 4px lightblue solid
-              #selected_file_pose_image, #selected_file_cloth_image
+              #selected_file_cloth_image
                 display: none
                 height: 100%
                 width: 100%
