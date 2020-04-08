@@ -143,8 +143,10 @@
             }
             it.drawToCanvas(imgSrc, 'selected_file_cloth_image_canvas')
           }
-          this.clothImg = document.getElementById('selected_file_cloth_image_canvas').toDataURL('image/png').replace(/^.*,/, '')
           document.getElementById('cloth_label').style.display = 'none'
+          setTimeout(() => {
+            this.clothImg = document.getElementById('selected_file_cloth_image_canvas').toDataURL('image/png').replace(/^.*,/, '')
+          }, 1000)
         }
       },
       retrieveOutfits(apiUrl) {

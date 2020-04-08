@@ -153,8 +153,10 @@
             let imgSrc = e.target.result
             it.drawToCanvas(imgSrc, 'selected_file_pose_image_canvas')
           }
-          this.poseImg = document.getElementById('selected_file_pose_image_canvas').toDataURL('image/png').replace(/^.*,/, '')
           document.getElementById('pose_label').style.display = 'none'
+          setTimeout(() => {
+            this.poseImg = document.getElementById('selected_file_pose_image_canvas').toDataURL('image/png').replace(/^.*,/, '')
+          }, 1000)
         }
       },
       changeCloth(e) {
@@ -166,8 +168,10 @@
             let imgSrc = e.target.result
             it.drawToCanvas(imgSrc, 'selected_file_cloth_image_canvas')
           }
-          this.clothImg = document.getElementById('selected_file_cloth_image_canvas').toDataURL('image/png').replace(/^.*,/, '')
           document.getElementById('cloth_label').style.display = 'none'
+          setTimeout(() => {
+            this.clothImg = document.getElementById('selected_file_cloth_image_canvas').toDataURL('image/png').replace(/^.*,/, '')
+          }, 1000)
         }
       },
       generateTryOnImage(apiUrl) {

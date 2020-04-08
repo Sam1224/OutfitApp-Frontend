@@ -28,6 +28,37 @@
             <el-form-item label="Avatar" prop="avatar">
               <el-image style="width:128px;height:128px;" :src="props.row.avatar" fit="fill"></el-image>
             </el-form-item>
+            <el-form-item label="VTON" prop="vton">
+              <el-collapse>
+                <el-collapse-item v-for="(vton, index) in props.row.vton" :key="index" class="vton-list" :title="vton._id" :name="vton._id">
+                  <el-form-item label="Pose" prop="pose">
+                    <el-image style="width:192px;height:256px;" :src="convBase64ToImage(vton.pose)"></el-image>
+                  </el-form-item>
+                  <el-form-item label="Cloth" prop="cloth">
+                    <el-image style="width:192px;height:256px;" :src="convBase64ToImage(vton.cloth)"></el-image>
+                  </el-form-item>
+                  <el-form-item label="Result" prop="result">
+                    <el-image style="width:192px;height:256px;" :src="convBase64ToImage(vton.result)"></el-image>
+                  </el-form-item>
+                </el-collapse-item>
+              </el-collapse>
+            </el-form-item>
+            <el-form-item label="Retrieval" prop="retrieval">
+              <el-collapse>
+                <el-collapse-item v-for="(retrieval, index) in props.row.retrieval" :key="index" class="retrieval-list" :title="retrieval._id" :name="retrieval._id">
+                  <el-form-item label="Cloth" prop="cloth">
+                    <el-image :src="convBase64ToImage(retrieval.cloth)"></el-image>
+                  </el-form-item>
+                  <el-form-item label="Results" prop="results">
+                    <el-carousel :interval="3000" type="card">
+                      <el-carousel-item v-for="(result, index) in retrieval.results" :key="index">
+                        <el-image style="width:256px;height:256px;" :src="convBase64ToImage(result)" fit="fill"></el-image>
+                      </el-carousel-item>
+                    </el-carousel>
+                  </el-form-item>
+                </el-collapse-item>
+              </el-collapse>
+            </el-form-item>
           </el-form>
         </div>
         <a slot="status" slot-scope="props">{{props.row.status === '0' ? '√' : '×'}}</a>
@@ -77,7 +108,20 @@
         },
         props: [
           '_id'
-        ]
+        ],
+        vtonColumns: ['_id', 'pose', 'cloth', 'result', 'createAt'],
+        vtonOptions: {
+          headings: {
+            _id: 'ID',
+            pose: 'Pose',
+            cloth: 'Cloth',
+            result: 'Result',
+            createAt: 'Create At'
+          },
+          sortables: [],
+          perPage: 10,
+          uniqueKey: '_id'
+        }
       }
     },
     created () {
@@ -154,6 +198,9 @@
       editUser(id) {
         this.$router.params = id
         this.$router.push('/admin/users/edit')
+      },
+      convBase64ToImage(base64) {
+        return `data:image/png;base64,${base64}`
       }
     }
   }
