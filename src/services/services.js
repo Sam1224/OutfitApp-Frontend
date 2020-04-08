@@ -7,7 +7,7 @@ import Api from './api'
 
 export default {
   getOneUserById(id) {
-    return Api().get(`/user/one?type=0&query=${id}&status=0`)
+    return Api().get(`/user/one?type=0&query=${id}`)
   },
   getUsers() {
     return Api().get('/user')

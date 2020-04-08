@@ -30,6 +30,7 @@
             </el-form-item>
           </el-form>
         </div>
+        <a slot="status" slot-scope="props">{{props.row.status === '0' ? '√' : '×'}}</a>
         <a slot="edit" slot-scope="props" class="el-icon-setting" @click="editUser(props.row._id)"></a>
         <a slot="remove" slot-scope="props" class="el-icon-delete" @click="deleteUser(props.row._id)"></a>
       </v-client-table>
@@ -60,7 +61,7 @@
         loading: true,
         users: [],
         errors: [],
-        columns: ['_id', 'username', 'phone', 'email', 'name', 'edit', 'remove'],
+        columns: ['_id', 'username', 'phone', 'email', 'name', 'status', 'edit', 'remove'],
         options: {
           headings: {
             _id: 'ID',
