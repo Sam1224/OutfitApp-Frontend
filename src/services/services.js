@@ -34,6 +34,36 @@ export default {
       }
     })
   },
+  addVton(vton) {
+    return Api().post(`/user/vton/add`, vton, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+  },
+  deleteVton(vton) {
+    return Api().delete(`/user/vton/delete`, {
+      data: vton,
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+  },
+  addRetrieval(retrieval) {
+    return Api().post(`/user/retrieval/add`, retrieval, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+  },
+  deleteRetrieval(retrieval) {
+    return Api().delete(`/uesr/retrieval/delete`, {
+      data: retrieval,
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+  },
   getAdmins(token) {
     return Api().get('/admin', {
       headers: {
