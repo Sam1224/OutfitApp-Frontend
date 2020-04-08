@@ -60,7 +60,7 @@ const router = new Router({
           name: 'virtual-try-on',
           component: FrontVirtualTryOn,
           meta: {
-            requireAuth: false
+            requireAuth: true
           }
         },
         {
@@ -68,7 +68,7 @@ const router = new Router({
           name: 'virtual-try-on-diy',
           component: FrontVirtualTryOnDIY,
           meta: {
-            requireAuth: false
+            requireAuth: true
           }
         },
         {
@@ -76,7 +76,7 @@ const router = new Router({
           name: 'outfit-retrieval',
           component: FrontRetrieval,
           meta: {
-            requireAuth: false
+            requireAuth: true
           }
         }
       ]
@@ -199,8 +199,8 @@ router.beforeEach((to, from, next) => {
     } else {
       let path = to.path
       if (path.indexOf('admin') >= 0) {
-        // frontend
-        if (localStorage.token && localStorage.getItem('account') && localStorage.getItem('account').end === statusCode.FRONTEND) {
+        // backend
+        if (localStorage.token && localStorage.getItem('account') && localStorage.getItem('account').end === statusCode.BACKEND) {
           store.state.token = localStorage.token
           store.state.account = JSON.parse(localStorage.getItem('account'))
           next()
@@ -211,8 +211,8 @@ router.beforeEach((to, from, next) => {
           })
         }
       } else {
-        // backend
-        if (localStorage.token && localStorage.getItem('account') && localStorage.getItem('account').end === statusCode.BACKEND) {
+        // frontend
+        if (localStorage.token && localStorage.getItem('account') && localStorage.getItem('account').end === statusCode.FRONTEND) {
           store.state.token = localStorage.token
           store.state.account = JSON.parse(localStorage.getItem('account'))
           next()
