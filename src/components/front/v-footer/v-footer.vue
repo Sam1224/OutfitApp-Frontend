@@ -38,6 +38,6 @@
       .iconfont
         margin-bottom: 4px
         font-size: 18px
-    .router-link-active
-      color: dodgerblue
+      &.active
+        color: dodgerblue
 </style>
