@@ -1,7 +1,7 @@
 <template>
   <div class="footer">
     <router-link class="footer-item" to="/home">
-      <i class="iconfont el-icon-user-solid"></i>
+      <i class="iconfont el-icon-s-home"></i>
     </router-link>
     <router-link class="footer-item" to="/vton">
       <i class="iconfont el-icon-s-goods"></i>
