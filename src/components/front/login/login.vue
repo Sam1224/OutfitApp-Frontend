@@ -1,8 +1,6 @@
 <template>
   <div class="login">
-    <div class="header-wrapper">
-      <h1 class="text">{{title}}</h1>
-    </div>
+    <v-header :title="title"></v-header>
     <el-form ref="loginForm" v-if="!isLogin" :model="loginForm" status-icon :rules="rules" label-width="80px" class="login-form">
       <el-form-item label="Username" prop="username">
         <el-input class="username" v-model="loginForm.username"></el-input>
@@ -24,6 +22,7 @@
   import Service from '@/services/services'
   import { mapMutations, mapGetters } from 'vuex'
   import statusCode from '@/common/js/status'
+  import VHeader from '@/components/front/v-header/v-header'
 
   const ERR_OK = statusCode.ERR_OK
   const AVATAR = 'http://static.galileo.xiaojukeji.com/static/tms/default_header.png'
@@ -59,6 +58,9 @@
       ])
     },
     methods: {
+      goBack() {
+        this.$router.go(-1)
+      },
       onSubmit (formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {
@@ -112,27 +114,14 @@
         login: 'LOGIN',
         setAccount: 'SET_ACCOUNT'
       })
+    },
+    components: {
+      VHeader
     }
   }
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-  .header-wrapper
-    position: relative
-    top: 0
-    width: 100%
-    height: 60px
-    z-index: 10
-    color: #fff
-    overflow: hidden
-    background: dodgerblue
-    .text
-      position: relative
-      text-align: center
-      height: 20px
-      line-height: 20px
-      font-size: 24px
-      margin: 24px
   .login-form
     position: relative
     top: 60px

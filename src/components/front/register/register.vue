@@ -1,8 +1,6 @@
 <template>
   <div id="register">
-    <div class="header-wrapper">
-      <h1 class="text">{{title}}</h1>
-    </div>
+    <v-header :title="title"></v-header>
     <el-form ref="regForm" :model="regForm" status-icon :rules="rules" label-width="80px" class="reg-form">
       <el-form-item label="Username" prop="username">
         <el-input class="username" v-model="regForm.username" auto-complete="off"></el-input>
@@ -35,6 +33,7 @@
 <script type="text/ecmascript-6">
   import Service from '@/services/services'
   import statusCode from '@/common/js/status'
+  import VHeader from '@/components/front/v-header/v-header'
 
   const ERR_OK = statusCode.ERR_OK
 
@@ -135,27 +134,14 @@
       cancel() {
         this.$router.push('/login')
       }
+    },
+    components: {
+      VHeader
     }
   }
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-  .header-wrapper
-    position: relative
-    top: 0
-    width: 100%
-    height: 60px
-    z-index: 10
-    color: #fff
-    overflow: hidden
-    background: dodgerblue
-    .text
-      position: relative
-      text-align: center
-      height: 20px
-      line-height: 20px
-      font-size: 24px
-      margin: 24px
   .reg-form
     position: relative
     top: 60px

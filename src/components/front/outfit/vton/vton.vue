@@ -1,8 +1,6 @@
 <template>
   <div class="virtual-try-on-wrapper">
-    <div class="header-wrapper">
-      <h1 class="text">{{title}}</h1>
-    </div>
+    <v-header :title="title"></v-header>
     <div class="vton" v-loading.fullscreen.lock="loading" element-loading-text="Generating..." element-loading-background="rgb(255, 255, 255)">
       <div class="steps-wrapper">
         <el-steps :active="active">
@@ -72,6 +70,7 @@
 <script type="text/ecmascript-6">
   import axios from 'axios'
   import awsApis from '@/services/gpu'
+  import VHeader from '@/components/front/v-header/v-header'
 
   export default {
     data () {
@@ -250,27 +249,14 @@
           console.error(e)
         }
       }
+    },
+    components: {
+      VHeader
     }
   }
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-  .header-wrapper
-    position: relative
-    top: 0
-    width: 100%
-    height: 60px
-    z-index: 10
-    color: #fff
-    overflow: hidden
-    background: dodgerblue
-    .text
-      position: relative
-      text-align: center
-      height: 20px
-      line-height: 20px
-      font-size: 24px
-      margin: 24px
   .vton
     position: relative
     .steps-wrapper

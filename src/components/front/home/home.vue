@@ -1,9 +1,9 @@
 <template>
   <div class="home">
+    <div class="header-wrapper">
+      <h1 class="text">{{title}}</h1>
+    </div>
     <div v-show="!loading" class="content-wrapper">
-      <div class="header-wrapper">
-        <h1 class="text">{{title}}</h1>
-      </div>
       <el-carousel :interval="3000" arrow="hover" class="slides" :height="sliderHeight +'px'">
         <el-carousel-item class="slide-item" v-for="(pic, index) in pics" :key="index">
           <el-image :src="pic" fit="fill"></el-image>
@@ -56,25 +56,25 @@
     align-items: center
     justify-content: center
     text-align: center
+    .header-wrapper
+      position: relative
+      top: 0
+      width: 100%
+      height: 60px
+      z-index: 10
+      color: #fff
+      overflow: hidden
+      background: dodgerblue
+      .text
+        position: relative
+        text-align: center
+        height: 20px
+        line-height: 20px
+        font-size: 24px
+        margin: 24px
     .content-wrapper
       text-align: center
       width: 100%
       height: 100%
       margin: 0 auto
-      .header-wrapper
-        position: relative
-        top: 0
-        width: 100%
-        height: 60px
-        z-index: 10
-        color: #fff
-        overflow: hidden
-        background: dodgerblue
-        .text
-          position: relative
-          text-align: center
-          height: 20px
-          line-height: 20px
-          font-size: 24px
-          margin: 24px
 </style>
