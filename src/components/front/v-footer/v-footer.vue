@@ -3,7 +3,7 @@
     <router-link class="footer-item" to="/home">
       <i class="iconfont el-icon-s-home"></i>
     </router-link>
-    <router-link class="footer-item" to="/#">
+    <router-link class="footer-item" to="/vton-list">
       <i class="iconfont el-icon-s-goods"></i>
     </router-link>
     <div class="footer-item">

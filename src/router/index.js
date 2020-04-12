@@ -6,6 +6,7 @@ import FrontIndex from '@/components/front/index/index'
 import FrontLogin from '@/components/front/login/login'
 import FrontRegister from '@/components/front/register/register'
 import FrontHome from '@/components/front/home/home'
+import FrontVirtualTryOnList from '@/components/front/outfit/vton-list/vton-list'
 import FrontVirtualTryOn from '@/components/front/outfit/vton/vton'
 import FrontVirtualTryOnDIY from '@/components/front/outfit/vton-diy/vton-diy'
 import FrontRetrieval from '@/components/front/outfit/retrieval/retrieval'
@@ -51,6 +52,14 @@ const router = new Router({
           path: 'home',
           name: 'userhome',
           component: FrontHome,
+          meta: {
+            requireAuth: true
+          }
+        },
+        {
+          path: 'vton-list',
+          name: 'virtual-try-on-list',
+          component: FrontVirtualTryOnList,
           meta: {
             requireAuth: true
           }

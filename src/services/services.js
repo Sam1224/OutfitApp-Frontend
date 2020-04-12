@@ -9,6 +9,9 @@ export default {
   getOneUserById(id) {
     return Api().get(`/user/one?type=0&query=${id}`)
   },
+  getOneUser(type, query) {
+    return Api().get(`/user/one?type=${type}&query=${query}`)
+  },
   getUsers() {
     return Api().get('/user')
   },
