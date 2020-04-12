@@ -63,35 +63,41 @@
           })
       },
       deleteRetrieval(retrievalid) {
-        let retrieval = {}
-        retrieval._id = this.user._id
-        retrieval.username = this.user.username
-        retrieval.retrievalid = retrievalid
+        this.$confirm('This operation will delete the retrieval record, continue?', 'Tips', {
+          confirmButtonText: 'Delete',
+          cancelButtonText: 'Cancel',
+          type: 'warning'
+        }).then(() => {
+          let retrieval = {}
+          retrieval._id = this.user._id
+          retrieval.username = this.user.username
+          retrieval.retrievalid = retrievalid
 
-        Service.deleteRetrieval(retrieval)
-          .then((response) => {
-            let res = response.data
-            if (res.code === statusCode.ERR_OK) {
-              this.$message({
-                showClose: true,
-                message: res.message,
-                type: 'success',
-                center: true,
-                duration: 1000
-              })
-              setTimeout(() => {
-                this._initializeUsers()
-              }, 1500)
-            } else {
-              this.$message({
-                showClose: true,
-                message: res.message,
-                type: 'success',
-                center: true,
-                duration: 1000
-              })
-            }
-          })
+          Service.deleteRetrieval(retrieval)
+            .then((response) => {
+              let res = response.data
+              if (res.code === statusCode.ERR_OK) {
+                this.$message({
+                  showClose: true,
+                  message: res.message,
+                  type: 'success',
+                  center: true,
+                  duration: 1000
+                })
+                setTimeout(() => {
+                  this._initializeUsers()
+                }, 1500)
+              } else {
+                this.$message({
+                  showClose: true,
+                  message: res.message,
+                  type: 'success',
+                  center: true,
+                  duration: 1000
+                })
+              }
+            })
+        })
       },
       convBase64ToImage(base64) {
         return `data:image/png;base64,${base64}`
