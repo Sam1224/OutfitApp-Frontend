@@ -4,7 +4,7 @@
       <h1 class="text">{{title}}</h1>
     </div>
     <div v-show="!loading" class="content-wrapper">
-      <el-card class="box-card">
+      <el-card class="box-card" shadow="never">
         <div slot="header" class="clearfix">
           <span>Virtual Try-On Samples</span>
         </div>
@@ -14,7 +14,7 @@
           </el-carousel-item>
         </el-carousel>
       </el-card>
-      <el-card class="box-card">
+      <el-card class="box-card" shadow="never">
         <div slot="header" class="clearfix">
           <span>Outfits Retrieval Samples</span>
         </div>
@@ -40,7 +40,7 @@
           require('../../../assets/2.jpg'),
           require('../../../assets/3.jpg')
         ],
-        sliderHeight: 200
+        sliderHeight: 166
       }
     },
     created() {
@@ -99,4 +99,6 @@
             display: table
             content: ""
             clear: both
+        .slides
+          background: rgba(0, 0, 0, 0.1)
 </style>

@@ -3,11 +3,31 @@
     <router-link class="footer-item" to="/home">
       <i class="iconfont el-icon-s-home"></i>
     </router-link>
-    <router-link class="footer-item" to="/vton">
+    <router-link class="footer-item" to="/#">
       <i class="iconfont el-icon-s-goods"></i>
     </router-link>
-    <router-link class="footer-item" to="/retrieval">
-      <i class="iconfont el-icon-s-goods"></i>
+    <div class="footer-item">
+      <el-popover placement="top" width="100" trigger="click" v-model="visible">
+        <el-row>
+          <el-col :span="10" style="text-align: center;">
+            <router-link class="add-item" to="/vton">
+              <i @click="visible = false" class="iconfont el-icon-s-goods" style="font-size: 24px;color: #333;"></i>
+            </router-link>
+          </el-col>
+          <el-col :span="4" style="text-align: center;">
+            <el-divider direction="vertical"></el-divider>
+          </el-col>
+          <el-col :span="10" style="text-align: center;">
+            <router-link class="add-item" to="/retrieval">
+              <i @click="visible = false" class="iconfont el-icon-s-help" style="font-size: 24px;color: #333;"></i>
+            </router-link>
+          </el-col>
+        </el-row>
+        <i slot="reference" class="iconfont plus el-icon-circle-plus"></i>
+      </el-popover>
+    </div>
+    <router-link class="footer-item" to="/#">
+      <i class="iconfont el-icon-s-help"></i>
     </router-link>
     <router-link class="footer-item" to="/personal">
       <i class="iconfont el-icon-s-custom"></i>
@@ -17,7 +37,12 @@
 
 <script type="text/ecmascript-6">
   export default {
-    name: 'VFooter'
+    name: 'VFooter',
+    data() {
+      return {
+        visible: false
+      }
+    }
   }
 </script>
 
@@ -37,7 +62,15 @@
       font-size: 12px
       .iconfont
         margin-bottom: 4px
-        font-size: 18px
+        margin-top: 4px
+        font-size: 24px
+      .plus
+        font-size: 56px
+        color: dodgerblue
       &.active
         color: dodgerblue
+      .add-item
+        color: #333
+        &.active
+          color: dodgerblue
 </style>
