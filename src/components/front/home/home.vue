@@ -4,11 +4,26 @@
       <h1 class="text">{{title}}</h1>
     </div>
     <div v-show="!loading" class="content-wrapper">
-      <el-carousel :interval="3000" arrow="hover" class="slides" :height="sliderHeight +'px'">
-        <el-carousel-item class="slide-item" v-for="(pic, index) in pics" :key="index">
-          <el-image :src="pic" fit="fill"></el-image>
-        </el-carousel-item>
-      </el-carousel>
+      <el-card class="box-card">
+        <div slot="header" class="clearfix">
+          <span>Virtual Try-On Samples</span>
+        </div>
+        <el-carousel :interval="3000" arrow="hover" class="slides" :height="sliderHeight +'px'">
+          <el-carousel-item class="slide-item" v-for="(pic, index) in pics" :key="index">
+            <el-image :src="pic" fit="fill"></el-image>
+          </el-carousel-item>
+        </el-carousel>
+      </el-card>
+      <el-card class="box-card">
+        <div slot="header" class="clearfix">
+          <span>Outfits Retrieval Samples</span>
+        </div>
+        <el-carousel :interval="3000" arrow="hover" class="slides" :height="sliderHeight +'px'">
+          <el-carousel-item class="slide-item" v-for="(pic, index) in pics" :key="index">
+            <el-image :src="pic" fit="fill"></el-image>
+          </el-carousel-item>
+        </el-carousel>
+      </el-card>
     </div>
   </div>
 </template>
@@ -23,8 +38,7 @@
           require('../../../assets/0.jpg'),
           require('../../../assets/1.jpg'),
           require('../../../assets/2.jpg'),
-          require('../../../assets/3.jpg'),
-          require('../../../assets/4.jpg')
+          require('../../../assets/3.jpg')
         ],
         sliderHeight: 200
       }
@@ -45,7 +59,7 @@
         }, 1000)
       },
       setSliderHeight() {
-        this.sliderHeight = document.body.clientWidth * 9 / 16
+        this.sliderHeight = document.body.clientWidth / 2
       }
     }
   }
@@ -77,4 +91,12 @@
       width: 100%
       height: 100%
       margin: 0 auto
+      .box-card
+        width: 100%
+        .clearfix
+          position: relative
+          &::after
+            display: table
+            content: ""
+            clear: both
 </style>
