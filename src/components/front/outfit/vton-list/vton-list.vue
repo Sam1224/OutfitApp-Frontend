@@ -4,13 +4,13 @@
     <el-card class="box-card" shadow="never">
       <el-row class="vton-item" v-for="(vton, index) in vtonList" :key="index">
         <el-col :span="8" style="text-align: center;">
-          <el-image :src="convBase64ToImage(vton.pose)"></el-image>
+          <el-image :src="convBase64ToImage(vton.pose)" fit="fill"></el-image>
         </el-col>
         <el-col :span="8" style="text-align: center;">
-          <el-image :src="convBase64ToImage(vton.cloth)"></el-image>
+          <el-image :src="convBase64ToImage(vton.cloth)" fit="fill"></el-image>
         </el-col>
         <el-col :span="8" style="text-align: center;">
-          <el-image :src="convBase64ToImage(vton.result)"></el-image>
+          <el-image :src="convBase64ToImage(vton.result)" fit="fill"></el-image>
         </el-col>
       </el-row>
     </el-card>

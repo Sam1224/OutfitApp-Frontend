@@ -26,7 +26,7 @@
         <i slot="reference" class="iconfont plus el-icon-circle-plus"></i>
       </el-popover>
     </div>
-    <router-link class="footer-item" to="/#">
+    <router-link class="footer-item" to="/retrieval-list">
       <i class="iconfont el-icon-s-help"></i>
     </router-link>
     <router-link class="footer-item" to="/personal">
