@@ -9,7 +9,7 @@
           <span>Virtual Try-On Samples</span>
         </div>
         <el-carousel :interval="3000" arrow="hover" class="slides" :height="sliderHeight +'px'">
-          <el-carousel-item class="slide-item" v-for="(pic, index) in pics" :key="index">
+          <el-carousel-item class="slide-item" v-for="(pic, index) in vtonPics" :key="index">
             <el-image :src="pic" fit="fill"></el-image>
           </el-carousel-item>
         </el-carousel>
@@ -19,7 +19,7 @@
           <span>Outfits Retrieval Samples</span>
         </div>
         <el-carousel :interval="3000" arrow="hover" class="slides" :height="sliderHeight +'px'">
-          <el-carousel-item class="slide-item" v-for="(pic, index) in pics" :key="index">
+          <el-carousel-item class="slide-item" v-for="(pic, index) in retrievalPics" :key="index">
             <el-image :src="pic" fit="fill"></el-image>
           </el-carousel-item>
         </el-carousel>
@@ -34,11 +34,17 @@
       return {
         loading: true,
         title: 'Custom Outfit App',
-        pics: [
-          require('../../../assets/0.jpg'),
-          require('../../../assets/1.jpg'),
-          require('../../../assets/2.jpg'),
-          require('../../../assets/3.jpg')
+        vtonPics: [
+          require('../../../assets/vton-0.jpg'),
+          require('../../../assets/vton-1.jpg'),
+          require('../../../assets/vton-2.jpg'),
+          require('../../../assets/vton-3.jpg')
+        ],
+        retrievalPics: [
+          require('../../../assets/vton-0.jpg'),
+          require('../../../assets/vton-1.jpg'),
+          require('../../../assets/vton-2.jpg'),
+          require('../../../assets/vton-3.jpg')
         ],
         sliderHeight: 166
       }
