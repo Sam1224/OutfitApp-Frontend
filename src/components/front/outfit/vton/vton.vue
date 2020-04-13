@@ -69,8 +69,11 @@
 
 <script type="text/ecmascript-6">
   import axios from 'axios'
+  import Service from '@/services/services'
   import awsApis from '@/services/gpu'
   import VHeader from '@/components/front/v-header/v-header'
+  import { mapGetters } from 'vuex'
+  import statusCode from '@/common/js/status'
 
   export default {
     data () {
@@ -79,6 +82,7 @@
         loading: false,
         apiUrl: awsApis.vton,
         active: 0,
+        user: {},
         stepData: [{
           index: 0,
           title: 'Step 1',
@@ -118,7 +122,26 @@
         clothImg: null
       }
     },
+    created() {
+      this._initializeUser()
+    },
+    computed: {
+      ...mapGetters([
+        'account'
+      ])
+    },
     methods: {
+      _initializeUser() {
+        let query = this.account.username
+        let type = statusCode.USERNAME
+        Service.getOneUser(type, query)
+          .then((response) => {
+            let res = response.data
+            if (res.code === statusCode.ERR_OK) {
+              this.user = res.data[0]
+            }
+          })
+      },
       changeStep(index) {
         this.active = index
       },
@@ -235,6 +258,18 @@
             .then((res) => {
               let dataURL = `data:image/png;base64,${res.data.tryon_img_base64}`
               this.drawToCanvas(dataURL, 'tryon_image_canvas')
+
+              let vton = {
+                '_id': this.user._id,
+                'username': this.user.username,
+                'pose': poseImgBase64,
+                'cloth': clothImgBase64,
+                'result': res.data.tryon_img_base64
+              }
+              Service.addVton(vton)
+                .then((response) => {
+                  console.log(response)
+                })
               setTimeout(() => {
                 this.loading = false
               }, 1000)
