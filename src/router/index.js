@@ -12,6 +12,7 @@ import FrontVirtualTryOnDIY from '@/components/front/outfit/vton-diy/vton-diy'
 import FrontRetrievalList from '@/components/front/outfit/retrieval-list/retrieval-list'
 import FrontRetrieval from '@/components/front/outfit/retrieval/retrieval'
 import FrontPersonal from '@/components/front/personal/personal'
+import FrontUserEdit from '@/components/front/user-edit/user-edit'
 import BackIndex from '@/components/back/index'
 import BackLogin from '@/components/back/login/login'
 import BackHome from '@/components/back/home/home'
@@ -104,6 +105,14 @@ const router = new Router({
           path: 'personal',
           name: 'front-personal',
           component: FrontPersonal,
+          meta: {
+            requireAuth: true
+          }
+        },
+        {
+          path: 'user-edit',
+          name: 'front-user-edit',
+          component: FrontUserEdit,
           meta: {
             requireAuth: true
           }

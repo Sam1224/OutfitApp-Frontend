@@ -14,7 +14,7 @@
           </div>
         </el-col>
         <el-col style="text-align:center;" :span="4" class="edit-btn">
-          <el-button type="primary" icon="el-icon-edit" circle></el-button>
+          <el-button type="primary" icon="el-icon-edit" circle @click="toUserEdit"></el-button>
         </el-col>
       </el-row>
       <el-row style="padding:24px;height:24px;">
@@ -106,6 +106,10 @@
       },
       toRetrievalList() {
         this.$router.push('/retrieval-list')
+      },
+      toUserEdit() {
+        this.$router.params = this.user
+        this.$router.push('/user-edit')
       }
     },
     components: {
