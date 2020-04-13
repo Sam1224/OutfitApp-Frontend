@@ -9,17 +9,31 @@
     <div class="footer-item">
       <el-popover placement="top" width="100" trigger="click" v-model="visible">
         <el-row>
-          <el-col :span="10" style="text-align: center;">
+          <el-col :span="7" style="text-align: center;">
             <router-link class="add-item" to="/vton">
-              <i @click="visible = false" class="iconfont el-icon-s-goods" style="font-size: 24px;color: #333;"></i>
+              <el-badge value="+" class="item">
+                <i @click="visible = false" class="iconfont el-icon-s-goods" style="font-size: 24px;color: #333;"></i>
+              </el-badge>
             </router-link>
           </el-col>
-          <el-col :span="4" style="text-align: center;">
+          <el-col :span="1" style="text-align: center;">
             <el-divider direction="vertical"></el-divider>
           </el-col>
-          <el-col :span="10" style="text-align: center;">
+          <el-col :span="7" style="text-align: center;">
+            <router-link class="add-item" to="/vton-diy">
+              <el-badge value="diy" class="item">
+                <i @click="visible = false" class="iconfont el-icon-s-goods" style="font-size: 24px;color: #333;"></i>
+              </el-badge>
+            </router-link>
+          </el-col>
+          <el-col :span="1" style="text-align: center;">
+            <el-divider direction="vertical"></el-divider>
+          </el-col>
+          <el-col :span="7" style="text-align: center;">
             <router-link class="add-item" to="/retrieval">
-              <i @click="visible = false" class="iconfont el-icon-s-help" style="font-size: 24px;color: #333;"></i>
+              <el-badge value="+" class="item">
+                <i @click="visible = false" class="iconfont el-icon-s-help" style="font-size: 24px;color: #333;"></i>
+              </el-badge>
             </router-link>
           </el-col>
         </el-row>
