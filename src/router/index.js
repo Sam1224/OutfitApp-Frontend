@@ -11,6 +11,7 @@ import FrontVirtualTryOn from '@/components/front/outfit/vton/vton'
 import FrontVirtualTryOnDIY from '@/components/front/outfit/vton-diy/vton-diy'
 import FrontRetrievalList from '@/components/front/outfit/retrieval-list/retrieval-list'
 import FrontRetrieval from '@/components/front/outfit/retrieval/retrieval'
+import FrontPersonal from '@/components/front/personal/personal'
 import BackIndex from '@/components/back/index'
 import BackLogin from '@/components/back/login/login'
 import BackHome from '@/components/back/home/home'
@@ -40,6 +41,11 @@ const router = new Router({
       component: FrontIndex,
       children: [
         {
+          path: '',
+          name: 'frontdefault',
+          component: FrontHome
+        },
+        {
           path: 'login',
           name: 'userlogin',
           component: FrontLogin
@@ -52,10 +58,7 @@ const router = new Router({
         {
           path: 'home',
           name: 'userhome',
-          component: FrontHome,
-          meta: {
-            requireAuth: true
-          }
+          component: FrontHome
         },
         {
           path: 'vton-list',
@@ -93,6 +96,14 @@ const router = new Router({
           path: 'retrieval',
           name: 'outfit-retrieval',
           component: FrontRetrieval,
+          meta: {
+            requireAuth: true
+          }
+        },
+        {
+          path: 'personal',
+          name: 'front-personal',
+          component: FrontPersonal,
           meta: {
             requireAuth: true
           }
