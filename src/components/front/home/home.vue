@@ -8,17 +8,17 @@
         <div slot="header" class="clearfix">
           <span>Virtual Try-On Samples</span>
         </div>
-        <el-carousel :interval="3000" arrow="hover" class="slides" :height="sliderHeight +'px'">
+        <el-carousel :interval="3000" arrow="hover" class="slides" height="166px">
           <el-carousel-item class="slide-item" v-for="(pic, index) in vtonPics" :key="index">
             <el-image :src="pic" fit="fill"></el-image>
           </el-carousel-item>
         </el-carousel>
       </el-card>
-      <el-card class="box-card" shadow="never">
+      <el-card class="box-card" shadow="never" style="padding-bottom: 50px">
         <div slot="header" class="clearfix">
           <span>Outfits Retrieval Samples</span>
         </div>
-        <el-carousel :interval="3000" arrow="hover" class="slides" :height="sliderHeight +'px'">
+        <el-carousel :interval="3000" arrow="hover" class="slides" height="331px">
           <el-carousel-item class="slide-item" v-for="(pic, index) in retrievalPics" :key="index">
             <el-image :src="pic" fit="fill"></el-image>
           </el-carousel-item>
@@ -41,12 +41,12 @@
           require('../../../assets/vton-3.jpg')
         ],
         retrievalPics: [
-          require('../../../assets/vton-0.jpg'),
-          require('../../../assets/vton-1.jpg'),
-          require('../../../assets/vton-2.jpg'),
-          require('../../../assets/vton-3.jpg')
+          require('../../../assets/retrieval-0.jpg'),
+          require('../../../assets/retrieval-1.jpg'),
+          require('../../../assets/retrieval-2.jpg'),
+          require('../../../assets/retrieval-3.jpg')
         ],
-        sliderHeight: 166
+        sliderHeight: 512
       }
     },
     created() {
