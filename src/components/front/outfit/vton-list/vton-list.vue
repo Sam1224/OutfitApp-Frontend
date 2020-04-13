@@ -15,14 +15,14 @@
       </el-row>
       <el-row>
         <el-col :span="12" style="text-align: center;">
-          <el-image :src="convBase64ToImage(vton.pose)" fit="fill"></el-image>
+          <el-image :src="convBase64ToImage(vton.pose)" fit="fill" lazy></el-image>
         </el-col>
         <el-col :span="12" style="text-align: center;">
-          <el-image :src="convBase64ToImage(vton.cloth)" fit="fill"></el-image>
+          <el-image :src="convBase64ToImage(vton.cloth)" fit="fill" lazy></el-image>
         </el-col>
       </el-row>
       <el-row style="text-align: center;">
-          <el-image :src="convBase64ToImage(vton.result)" fit="fill"></el-image>
+          <el-image :src="convBase64ToImage(vton.result)" fit="fill" lazy></el-image>
       </el-row>
     </el-card>
   </div>
