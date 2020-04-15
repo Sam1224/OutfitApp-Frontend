@@ -90,7 +90,7 @@
                   this.login(res.token)
                   this.setAccount(account)
                   setTimeout(() => {
-                    this.$router.push('/home')
+                    this.$router.push('/')
                   }, 1500)
                 } else {
                   this.$message({
