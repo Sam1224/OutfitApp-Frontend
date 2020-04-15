@@ -38,7 +38,6 @@ const router = new Router({
   routes: [
     {
       path: '/',
-      name: 'FrontIndex',
       component: FrontIndex,
       children: [
         {
@@ -55,11 +54,6 @@ const router = new Router({
           path: 'register',
           name: 'userregister',
           component: FrontRegister
-        },
-        {
-          path: 'home',
-          name: 'userhome',
-          component: FrontHome
         },
         {
           path: 'vton-list',
