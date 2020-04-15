@@ -1,6 +1,6 @@
 <template>
   <div class="footer">
-    <router-link class="footer-item" to="/">
+    <router-link class="footer-item" to="/home">
       <i class="iconfont el-icon-s-home"></i>
     </router-link>
     <router-link class="footer-item" to="/vton-list">

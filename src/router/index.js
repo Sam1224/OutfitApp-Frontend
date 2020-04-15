@@ -39,9 +39,10 @@ const router = new Router({
     {
       path: '/',
       component: FrontIndex,
+      redirect: '/home',
       children: [
         {
-          path: '',
+          path: 'home',
           name: 'frontdefault',
           component: FrontHome
         },
