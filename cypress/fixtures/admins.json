@@ -1,5 +1,11 @@
 [
   {
+    "username": "admin",
+    "password": "admin",
+    "phone": "18351818012",
+    "email": "18351818012@163.com"
+  },
+  {
     "username": "admin1",
     "password": "123456",
     "phone": "0894889590",

@@ -7,4 +7,4 @@ const config = {
   'apiBaseUrl': 'https://outfitapp-sam.herokuapp.com'
 }
 
-module.export = config
+module.exports = config
