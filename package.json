@@ -5,8 +5,10 @@
   "author": "Qianxiong Xu <20086454@mail.wit.ie>",
   "private": true,
   "scripts": {
+    "cypress:open": "cypress open",
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
+    "start:server": "cd ./dist && ws --spa index.html -p 8080 & wait-on http://localhost:8080",
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
     "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",
