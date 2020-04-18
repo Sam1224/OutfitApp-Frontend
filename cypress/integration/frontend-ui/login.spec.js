@@ -125,6 +125,12 @@ describe ('Test login page of the frontend ui', () => {
         cy.wait(3000)
         cy.url().should('contain', '/register')
       })
+      it('should redirect to home page when cancel is clicked', () => {
+        cy.get('.cancel')
+          .click()
+        cy.wait(3000)
+        cy.url().should('contain', '/home')
+      })
     })
   })
 })
