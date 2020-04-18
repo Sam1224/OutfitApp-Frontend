@@ -10,15 +10,15 @@
           <el-divider direction="vertical"></el-divider>
         </el-col>
         <el-col :span="12" style="text-align: center; padding-left: 12px;">
-          <el-button type="danger" style="padding: 6px 6px" icon="el-icon-delete" @click="deleteRetrieval(retrieval._id)" circle></el-button>
+          <el-button type="danger" class="delete-btn" style="padding: 6px 6px" icon="el-icon-delete" @click="deleteRetrieval(retrieval._id)" circle></el-button>
         </el-col>
       </el-row>
       <el-row :span="8" style="text-align: center;">
-        <el-image style="height: 256px;" :src="convBase64ToImage(retrieval.cloth)" fit="fit" lazy></el-image>
+        <el-image class="cloth" style="height: 256px;" :src="convBase64ToImage(retrieval.cloth)" fit="fit" lazy></el-image>
       </el-row>
       <el-row :span="16" style="text-align: center;">
         <el-carousel class="slides" height="256px" :interval="3000">
-          <el-carousel-item v-for="(result, index) in retrieval.results" :key="index">
+          <el-carousel-item class="result" v-for="(result, index) in retrieval.results" :key="index">
             <el-image style="height: 256px;width: 256px;" :src="convBase64ToImage(result)" fit="fit" lazy></el-image>
           </el-carousel-item>
         </el-carousel>
