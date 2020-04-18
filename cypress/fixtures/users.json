@@ -1,0 +1,86 @@
+[
+  {
+    "username": "user1",
+    "password": "123456",
+    "phone": "0894889590",
+    "email": "18351818012@163.com",
+    "name": "Qianxiong Xu 1"
+  },
+  {
+    "username": "user2",
+    "password": "123456",
+    "phone": "0894889591",
+    "email": "18351818013@163.com",
+    "name": "Qianxiong Xu 2"
+  },
+  {
+    "username": "user3",
+    "password": "123456",
+    "phone": "0894889592",
+    "email": "18351818014@163.com",
+    "name": "Qianxiong Xu 3"
+  },
+  {
+    "username": "user4",
+    "password": "123456",
+    "phone": "0894889593",
+    "email": "18351818015@163.com",
+    "name": "Qianxiong Xu 4"
+  },
+  {
+    "username": "user5",
+    "password": "123456",
+    "phone": "0894889594",
+    "email": "18351818016@163.com",
+    "name": "Qianxiong Xu 5"
+  },
+  {
+    "username": "user6",
+    "password": "123456",
+    "phone": "0894889595",
+    "email": "18351818017@163.com",
+    "name": "Qianxiong Xu 6"
+  },
+  {
+    "username": "user7",
+    "password": "123456",
+    "phone": "0894889596",
+    "email": "18351818018@163.com",
+    "name": "Qianxiong Xu 7"
+  },
+  {
+    "username": "user8",
+    "password": "123456",
+    "phone": "0894889597",
+    "email": "18351818019@163.com",
+    "name": "Qianxiong Xu 8"
+  },
+  {
+    "username": "user9",
+    "password": "123456",
+    "phone": "0894889598",
+    "email": "18351818020@163.com",
+    "name": "Qianxiong Xu 9"
+  },
+  {
+    "username": "user10",
+    "password": "123456",
+    "phone": "0894889599",
+    "email": "18351818021@163.com",
+    "name": "Qianxiong Xu 10"
+  },
+  {
+    "username": "user11",
+    "password": "123456",
+    "phone": "0894889600",
+    "email": "18351818022@163.com",
+    "name": "Qianxiong Xu 11"
+  },
+  {
+    "username": "user12",
+    "password": "123456",
+    "phone": "0894889601",
+    "email": "18351818023@163.com",
+    "name": "Qianxiong Xu 12"
+  }
+]

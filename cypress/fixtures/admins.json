@@ -1,0 +1,20 @@
+[
+  {
+    "username": "admin1",
+    "password": "123456",
+    "phone": "0894889590",
+    "email": "20086454@mail.wit.com"
+  },
+  {
+    "username": "admin2",
+    "password": "123456",
+    "phone": "0894889591",
+    "email": "18351818012@163.com"
+  },
+  {
+    "username": "admin3",
+    "password": "123456",
+    "phone": "0894889596",
+    "email": "xusam2412@gmail.com"
+  }
+]
