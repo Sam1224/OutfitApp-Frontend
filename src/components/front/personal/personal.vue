@@ -4,7 +4,7 @@
     <div class="content-wrapper">
       <el-row>
         <el-col style="text-align:center;" :span="8">
-          <el-image style="width:100px;height:100px;" :src="user.avatar" fit="fill"></el-image>
+          <el-image class="avatar" style="width:100px;height:100px;" :src="user.avatar" fit="fill"></el-image>
         </el-col>
         <el-col style="padding-left:12px;" :span="12">
           <div class="name">
@@ -14,7 +14,7 @@
           </div>
         </el-col>
         <el-col style="text-align:center;" :span="4" class="edit-btn">
-          <el-button type="primary" icon="el-icon-edit" circle @click="toUserEdit"></el-button>
+          <el-button type="primary" class="edit" icon="el-icon-edit" circle @click="toUserEdit"></el-button>
         </el-col>
       </el-row>
       <el-row style="padding:24px;height:24px;">
@@ -37,7 +37,7 @@
         <el-col style="text-align:right;line-height:24px;font-size:16px;color:rgba(0,0,0,0.4)" :span="14">{{user.email}}</el-col>
         <el-divider></el-divider>
       </el-row>
-      <el-row style="padding:24px;height:24px;" @click.native="toVtonList">
+      <el-row class="vton-row" style="padding:24px;height:24px;" @click.native="toVtonList">
         <el-col style="line-height:24px;font-size:20px;" :span="10">Virtual Try-On</el-col>
         <el-col style="text-align:right;line-height:24px;font-size:16px;color:rgba(0,0,0,0.4)" :span="14">
           {{vton.length}}
@@ -45,7 +45,7 @@
         </el-col>
         <el-divider></el-divider>
       </el-row>
-      <el-row style="padding:24px;height:24px;" @click.native="toRetrievalList">
+      <el-row class="retrieval-row" style="padding:24px;height:24px;" @click.native="toRetrievalList">
         <el-col style="line-height:24px;font-size:20px;" :span="10">Outfits Retrieval</el-col>
         <el-col style="text-align:right;line-height:24px;font-size:16px;color:rgba(0,0,0,0.4)" :span="14">
           {{retrieval.length}}
