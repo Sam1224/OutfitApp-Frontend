@@ -10,19 +10,19 @@
           <el-divider direction="vertical"></el-divider>
         </el-col>
         <el-col :span="12" style="text-align: center; padding-left: 12px;">
-          <el-button type="danger" style="padding: 6px 6px" icon="el-icon-delete" @click="deleteVton(vton._id)" circle></el-button>
+          <el-button type="danger" class="delete-btn" style="padding: 6px 6px" icon="el-icon-delete" @click="deleteVton(vton._id)" circle></el-button>
         </el-col>
       </el-row>
       <el-row>
         <el-col :span="12" style="text-align: center;">
-          <el-image :src="convBase64ToImage(vton.pose)" fit="fill" lazy></el-image>
+          <el-image class="pose" :src="convBase64ToImage(vton.pose)" fit="fill" lazy></el-image>
         </el-col>
         <el-col :span="12" style="text-align: center;">
-          <el-image :src="convBase64ToImage(vton.cloth)" fit="fill" lazy></el-image>
+          <el-image class="cloth" :src="convBase64ToImage(vton.cloth)" fit="fill" lazy></el-image>
         </el-col>
       </el-row>
       <el-row style="text-align: center;">
-          <el-image :src="convBase64ToImage(vton.result)" fit="fill" lazy></el-image>
+          <el-image class="result" :src="convBase64ToImage(vton.result)" fit="fill" lazy></el-image>
       </el-row>
     </el-card>
   </div>
