@@ -166,6 +166,9 @@
                 center: true,
                 duration: 1000
               })
+              setTimeout(() => {
+                this.$router.push('/admin/users')
+              }, 1500)
             } else if (res.code === ERR_NOK && res.error.name === 'TokenExpiredError') {
               this.$message({
                 showClose: true,
