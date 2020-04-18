@@ -92,36 +92,21 @@
         loading: true,
         users: [],
         errors: [],
-        columns: ['_id', 'username', 'phone', 'email', 'name', 'status', 'edit', 'remove'],
+        columns: ['_id', 'username', 'name', 'status', 'edit', 'remove'],
         options: {
           headings: {
             _id: 'ID',
             username: 'Username',
-            phone: 'Phone',
-            email: 'Email',
             name: 'Name'
           },
-          sortables: ['username', 'phone', 'email', 'name'],
+          sortables: ['username', 'name'],
           perPage: 10,
-          filterable: ['username', 'phone', 'email', 'name'],
+          filterable: ['username', 'name'],
           uniqueKey: '_id'
         },
         props: [
           '_id'
-        ],
-        vtonColumns: ['_id', 'pose', 'cloth', 'result', 'createAt'],
-        vtonOptions: {
-          headings: {
-            _id: 'ID',
-            pose: 'Pose',
-            cloth: 'Cloth',
-            result: 'Result',
-            createAt: 'Create At'
-          },
-          sortables: [],
-          perPage: 10,
-          uniqueKey: '_id'
-        }
+        ]
       }
     },
     created () {
