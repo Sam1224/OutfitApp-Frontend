@@ -15,7 +15,7 @@
         bitbucketConfig: {
           client_id: 'ktjC8BVNyPtJjnZzQ3',
           client_secret: 'xtJ9FRBG6hAUWUfuHyDn8wRyPpbdzNh8',
-          redirect_uri: 'http://localhost:8080/admin/bitbucketredirect',
+          redirect_uri: 'https://outfitapp-sam.firebaseapp.com/admin/bitbucketredirect',
           scope: 'account',
           state: 'Sam',
           getCodeURL: 'https://bitbucket.org/site/oauth2/authorize',

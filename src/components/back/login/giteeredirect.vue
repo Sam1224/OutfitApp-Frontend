@@ -15,7 +15,7 @@
         giteeConfig: {
           client_id: 'ae3939548aef89816a4eea7c585725f3bcc64ba765ddd2f5140cf9d55837de41',
           client_secret: '632125aac2341fe5029290b5e0079914dc1e961592f8602777730db242a58205',
-          redirect_uri: 'http://localhost:8080/admin/giteeredirect',
+          redirect_uri: 'https://outfitapp-sam.firebaseapp.com/admin/giteeredirect',
           scope: 'user_info',
           state: 'Sam',
           getCodeURL: 'https://gitee.com/oauth/authorize',

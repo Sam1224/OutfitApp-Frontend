@@ -15,7 +15,7 @@
         gitlabConfig: {
           app_id: 'd14ac7139b5f2b4feb5eaff6b086e85365007d909e8ed798177ac91a778230a5',
           secret_id: '45cd472c96ff35cf7715cb859bbb49884fc0e1293a897c5201dc06edb24fcdde',
-          redirectURL: 'http://localhost:8080/admin/gitlabredirect',
+          redirectURL: 'https://outfitapp-sam.firebaseapp.com/admin/gitlabredirect',
           scope: 'read_user+profile',
           state: 'Sam',
           getCodeURL: 'https://gitlab.com/oauth/authorize',

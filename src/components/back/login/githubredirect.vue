@@ -20,7 +20,7 @@
           getCodeURL: 'https://github.com/login/oauth/authorize',
           getAccessTokenURL: 'https://outfitapp-sam.herokuapp.com/loginGithub',
           getUserURl: 'https://api.github.com/user',
-          redirectURL: 'http://localhost:8080/admin/githubredirect',
+          redirectURL: 'https://outfitapp-sam.firebaseapp.com/admin/githubredirect',
           code: null,
           accessToken: null,
           signState: false

@@ -75,7 +75,7 @@
           getCodeURL: 'https://github.com/login/oauth/authorize',
           getAccessTokenURL: 'https://outfitapp-sam.herokuapp.com/loginGithub',
           getUserURl: 'https://api.github.com/user',
-          redirectURL: 'http://localhost:8080/admin/githubredirect',
+          redirectURL: 'https://outfitapp-sam.firebaseapp.com/admin/githubredirect',
           code: null,
           accessToken: null,
           signState: false
@@ -84,7 +84,7 @@
         gitlabConfig: {
           app_id: 'd14ac7139b5f2b4feb5eaff6b086e85365007d909e8ed798177ac91a778230a5',
           secret_id: '45cd472c96ff35cf7715cb859bbb49884fc0e1293a897c5201dc06edb24fcdde',
-          redirectURL: 'http://localhost:8080/admin/gitlabredirect',
+          redirectURL: 'https://outfitapp-sam.firebaseapp.com/admin/gitlabredirect',
           scope: 'read_user+profile',
           state: 'Sam',
           getCodeURL: 'https://gitlab.com/oauth/authorize',
@@ -97,7 +97,7 @@
         giteeConfig: {
           client_id: 'ae3939548aef89816a4eea7c585725f3bcc64ba765ddd2f5140cf9d55837de41',
           client_secret: '632125aac2341fe5029290b5e0079914dc1e961592f8602777730db242a58205',
-          redirect_uri: 'http://localhost:8080/admin/giteeredirect',
+          redirect_uri: 'https://outfitapp-sam.firebaseapp.com/admin/giteeredirect',
           scope: 'user_info',
           state: 'Sam',
           getCodeURL: 'https://gitee.com/oauth/authorize',
@@ -110,7 +110,7 @@
         bitbucketConfig: {
           client_id: 'ktjC8BVNyPtJjnZzQ3',
           client_secret: 'xtJ9FRBG6hAUWUfuHyDn8wRyPpbdzNh8',
-          redirect_uri: 'http://localhost:8080/admin/bitbucketredirect',
+          redirect_uri: 'https://outfitapp-sam.firebaseapp.com/admin/bitbucketredirect',
           scope: 'account',
           state: 'Sam',
           getCodeURL: 'https://bitbucket.org/site/oauth2/authorize',
@@ -123,7 +123,7 @@
         weiboConfig: {
           client_id: '2882795678',
           client_secret: '281d4c035a31ec837576c177afb40041',
-          redirect_uri: 'http://127.0.0.1:8080/admin/weiboredirect',
+          redirect_uri: 'https://outfitapp-sam.firebaseapp.com/admin/weiboredirect',
           scope: 'all',
           state: 'Sam',
           getCodeURL: 'https://api.weibo.com/oauth2/authorize',

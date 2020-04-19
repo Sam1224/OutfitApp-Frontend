@@ -15,7 +15,7 @@
         weiboConfig: {
           client_id: '2882795678',
           client_secret: '281d4c035a31ec837576c177afb40041',
-          redirect_uri: 'http://127.0.0.1:8080/admin/weiboredirect',
+          redirect_uri: 'https://outfitapp-sam.firebaseapp.com/admin/weiboredirect',
           scope: 'all',
           state: 'Sam',
           getCodeURL: 'https://api.weibo.com/oauth2/authorize',
