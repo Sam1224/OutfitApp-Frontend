@@ -1,0 +1,20 @@
+{
+  "projects": {
+    "default": "outfitapp-sam"
+  },
+  "targets": {
+    "outfitapp-sam": {
+      "hosting": {
+        "default": [
+          "outfitapp-sam"
+        ],
+        "staging": [
+          "outfitapp-sam-staging"
+        ],
+        "prod": [
+          "outfitapp-sam-prod"
+        ]
+      }
+    }
+  }
+}
