@@ -113,6 +113,7 @@
 <style lang="stylus" rel="stylesheet/stylus">
   .vton-item
     width: 100%
+    padding-bottom: 50px
     .clearfix
       position: relative
       &::after

@@ -19,7 +19,7 @@
       <el-row :span="16" style="text-align: center;">
         <el-carousel class="slides" height="256px" :interval="3000">
           <el-carousel-item class="result" v-for="(result, index) in retrieval.results" :key="index">
-            <el-image style="height: 256px;width: 256px;" :src="convBase64ToImage(result)" fit="fit" lazy></el-image>
+            <el-image style="height: 256px;width: 256px;" :src="convBase64ToImage(result)" fit="fit"></el-image>
           </el-carousel-item>
         </el-carousel>
       </el-row>
@@ -112,6 +112,7 @@
 <style lang="stylus" rel="stylesheet/stylus">
   .retrieval-item
     width: 100%
+    padding-bottom: 50px
     .clearfix
       position: relative
       &::after
