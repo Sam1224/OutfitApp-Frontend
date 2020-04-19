@@ -94,24 +94,24 @@ describe ('Test home page of the frontend ui', () => {
   describe('Content', () => {
     describe('Title', () => {
       it('shows a title', () => {
-        cy.get('.home')
+        cy.get('.home-wrapper')
           .get('.header-wrapper')
           .should('contain', 'Custom Outfit App')
       })
     })
     describe('Sliders', () => {
       it('shows two sliders', () => {
-        cy.get('.home')
+        cy.get('.home-wrapper')
           .get('.slides')
           .should('have.length', 2)
 
-        cy.get('.home')
+        cy.get('.home-wrapper')
           .get('.slides')
           .eq(0)
           .find('.slide-item')
           .should('have.length', 4)
 
-        cy.get('.home')
+        cy.get('.home-wrapper')
           .get('.slides')
           .eq(1)
           .find('.slide-item')

@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home-wrapper">
     <div class="header-wrapper">
       <h1 class="text">{{title}}</h1>
     </div>
@@ -72,7 +72,7 @@
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-  .home
+  .home-wrapper
     align-items: center
     justify-content: center
     text-align: center
