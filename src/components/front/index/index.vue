@@ -1,5 +1,5 @@
 <template>
-  <div class="index">
+  <div class="index-wrapper">
     <router-view></router-view>
     <div class="footer-wrapper">
       <v-footer></v-footer>
@@ -18,7 +18,7 @@
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-  .index
+  .index-wrapper
     text-align: left
     .footer-wrapper
       position: fixed

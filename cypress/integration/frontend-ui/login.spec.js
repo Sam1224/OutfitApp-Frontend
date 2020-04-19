@@ -113,7 +113,7 @@ describe ('Test login page of the frontend ui', () => {
         cy.wait(3000)
         cy.url()
           .should('contain', '/home')
-        cy.get('.home')
+        cy.get('.home-wrapper')
           .get('.header-wrapper')
           .should('contain', 'Custom Outfit App')
       })
