@@ -18,13 +18,15 @@
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-  .footer-wrapper
-    position: fixed
-    left: 0
-    bottom: -1px
-    width: 100%
-    box-shadow: 0 0 10px 0 hsla(0, 6%, 58%, 0.6)
-    height: 50px
-    z-index: 999
-    background: lightgreen
+  .index
+    text-align: left
+    .footer-wrapper
+      position: fixed
+      left: 0
+      bottom: -1px
+      width: 100%
+      box-shadow: 0 0 10px 0 hsla(0, 6%, 58%, 0.6)
+      height: 50px
+      z-index: 999
+      background: lightgreen
 </style>

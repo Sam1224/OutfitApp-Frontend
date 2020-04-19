@@ -3,7 +3,7 @@
     <div class="header-wrapper">
       <h1 class="text">{{title}}</h1>
     </div>
-    <div v-show="!loading" class="content-wrapper">
+    <div v-show="!loading" class="contents-wrapper">
       <el-card class="box-card" shadow="never">
         <div slot="header" class="clearfix">
           <span>Virtual Try-On Samples</span>
@@ -76,6 +76,7 @@
     align-items: center
     justify-content: center
     text-align: center
+    margin-top: 0
     .header-wrapper
       position: relative
       top: 0
@@ -92,7 +93,7 @@
         line-height: 20px
         font-size: 24px
         margin: 24px
-    .content-wrapper
+    .contents-wrapper
       text-align: center
       width: 100%
       height: 100%
