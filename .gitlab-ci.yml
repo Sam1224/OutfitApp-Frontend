@@ -1,0 +1,80 @@
+# Node docker image on which this would be run
+image: node:latest
+
+cache:
+  paths:
+    - node_modules/
+
+# Pipeline:
+stages:
+  - install
+  - build
+  - test
+  - deploy
+  - production
+
+# Jobs:
+
+install_dependencies:
+  stage: install
+  script:
+    - npm install
+
+build:
+  stage: build
+  script:
+    - npm run build
+  artifacts:
+    paths:
+      - dist/
+
+tests:
+  image: cypress/base:10
+  stage: test
+  before_script:
+    - npm install -g local-web-server
+    - npm install cypress
+    - npm run start:server
+  script:
+    - npx cypress run --record --key=$CYPRESS_RECORD_KEY
+
+deploy_staging:
+  image: rambabusaravanan/firebase
+  only:
+    - develop
+    - master
+  stage: deploy
+  before_script:
+    - npm install
+    - npm run build
+  script:
+    - firebase use $FIREBASE_REPO --token $FIREBASE_TOKEN
+    - firebase deploy --only hosting:$FIREBASE_STAGING -m "Pipe $CI_PIPELINE_ID Build $CI_BUILD_ID" --token $FIREBASE_TOKEN
+    - echo "Deployed to staging server"
+
+continuous_delivery:
+  image: rambabusaravanan/firebase
+  only:
+    - develop
+  stage: production
+  before_script:
+    - npm install
+    - npm run build
+  script:
+    - firebase use $FIREBASE_REPO --token $FIREBASE_TOKEN
+    - firebase deploy --only hosting:$FIREBASE_PROD -m "Pipe $CI_PIPELINE_ID Build $CI_BUILD_ID" --token $FIREBASE_TOKEN
+    - echo "Deployed to production server"
+
+continuous_deployment:
+  image: rambabusaravanan/firebase
+  only:
+    - master
+  stage: production
+  before_script:
+    - npm install
+    - npm run build
+  script:
+    - firebase use $FIREBASE_REPO --token $FIREBASE_TOKEN
+    - firebase deploy --only hosting:$FIREBASE_PROD -m "Pipe $CI_PIPELINE_ID Build $CI_BUILD_ID" --token $FIREBASE_TOKEN
+    - echo "Deployed to production server"
+
