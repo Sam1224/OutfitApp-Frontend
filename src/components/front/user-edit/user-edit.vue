@@ -4,6 +4,7 @@
     <el-form ref="userForm" :model="userForm" status-icon label-width="100px" class="user-table" :rules="rules">
       <el-form-item label="Avatar" prop="avatar">
         <el-upload ref="avatarUploader"
+                   class="upload-wrapper"
                    :class="{hide: hideUpload}"
                    list-type="picture-card"
                    action="https://outfitapp-sam.herokuapp.com/upload"
