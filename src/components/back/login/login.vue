@@ -198,9 +198,9 @@
           .then((googleUser) => {
             let profile = googleUser.getBasicProfile()
             let account = {
-              username: profile.U3,
-              name: profile.ig,
-              avatar: profile.Paa,
+              username: profile.zu,
+              name: profile.Ad,
+              avatar: profile.gL,
               type: GOOGLE,
               end: statusCode.BACKEND
             }
