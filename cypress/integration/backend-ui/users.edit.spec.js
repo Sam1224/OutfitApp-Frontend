@@ -114,7 +114,10 @@ describe ('Test edit user page of the backend ui', () => {
       .eq(0)
       .find('td')
       .eq(5)
-      .click()
+      .within(() => {
+        cy.get('.el-icon-setting')
+        .click()
+      })
     cy.wait(3000)
   })
   describe('Content', () => {
