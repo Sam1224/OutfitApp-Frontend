@@ -115,6 +115,7 @@ describe ('Test add user page of the backend ui', () => {
       .get('.tab-item')
       .get('.add')
       .click()
+    cy.wait(3000)
   })
   describe('Content', () => {
     describe('User form', () => {

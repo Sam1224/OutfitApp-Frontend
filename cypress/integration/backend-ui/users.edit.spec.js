@@ -115,6 +115,7 @@ describe ('Test edit user page of the backend ui', () => {
       .find('td')
       .eq(5)
       .click()
+    cy.wait(3000)
   })
   describe('Content', () => {
     describe('User form', () => {
