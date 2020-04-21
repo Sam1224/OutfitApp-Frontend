@@ -70,9 +70,9 @@
           type: 'warning'
         }).then(() => {
           let vton = {}
-          vtonid._id = this.user._id
-          vtonid.username = this.user.username
-          vtonid.vtonid = vtonid
+          vton._id = this.user._id
+          vton.username = this.user.username
+          vton.vtonid = vtonid
 
           Service.deleteVton(vton)
             .then((response) => {
@@ -86,7 +86,16 @@
                   duration: 1000
                 })
                 setTimeout(() => {
-                  this._initializeUsers()
+                  let query = this.account.username
+                  let type = statusCode.USERNAME
+                  Service.getOneUser(type, query)
+                    .then((response) => {
+                      let res = response.data
+                      if (res.code === statusCode.ERR_OK) {
+                        this.user = res.data[0]
+                        this.vtonList = res.data[0].vton
+                      }
+                    })
                 }, 1500)
               } else {
                 this.$message({

@@ -60,7 +60,7 @@ export default {
     })
   },
   deleteRetrieval(retrieval) {
-    return Api().delete(`/uesr/retrieval/delete`, {
+    return Api().delete(`/user/retrieval/delete`, {
       data: retrieval,
       headers: {
         'Content-Type': 'application/json'

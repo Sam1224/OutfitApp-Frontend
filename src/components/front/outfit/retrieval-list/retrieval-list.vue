@@ -85,7 +85,16 @@
                   duration: 1000
                 })
                 setTimeout(() => {
-                  this._initializeUsers()
+                  let query = this.account.username
+                  let type = statusCode.USERNAME
+                  Service.getOneUser(type, query)
+                    .then((response) => {
+                      let res = response.data
+                      if (res.code === statusCode.ERR_OK) {
+                        this.user = res.data[0]
+                        this.retrievalList = res.data[0].retrieval
+                      }
+                    })
                 }, 1500)
               } else {
                 this.$message({
