@@ -50,6 +50,7 @@ npm run cypress:open
 ```
 
 ## Description of Functionality
+>Note that the OAuth2 services in the backend login page would not be available unless you modify the config, e.g. create the app in Github and modify the redirect_url and other parameters in login.vue and githubredirect.vue
 - Client:
   >The client can be divided into 2 parts: `UI for frontend`and `UI for backend`.
   - Urls:
